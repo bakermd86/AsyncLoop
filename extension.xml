@@ -1,0 +1,20 @@
+<root>
+	<announcement text="FG Async Lib v0.1" font="emotefont" />
+
+	<properties>
+		<name>FG Async Lib</name>
+		<version>0.1</version>
+
+		<author>Fen</author>
+		<description>Async scheduling</description>
+
+		<loadorder>1000</loadorder>
+	</properties>
+    <base>
+		<includefile source="lib_async/async_lib.xml"/>
+		<includefile source="lib_async/strings_async.xml"/>
+		<script name="AsyncLib" file="lib_async/scripts/async_lib.lua" />
+
+		<script name="AsyncExamples" file="lib_async/scripts/examples.lua" />
+	</base>
+</root>

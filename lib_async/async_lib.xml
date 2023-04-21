@@ -1,0 +1,94 @@
+<root>
+
+    <windowclass name="async_trigger">
+        <placement>
+            <size width="50" height="50"/>
+        </placement>
+        <sizelimits>
+            <minimum width="50" height="50"/>
+            <dynamic />
+        </sizelimits>
+        <invisible />
+        <disabled />
+        <script file="lib_async/scripts/async_trigger.lua" />
+    </windowclass>
+
+	<template name="async_label">
+		<label>
+			<anchored to="rowAnchor" height="18" >
+				<top />
+				<left anchor="right" relation="relative" offset="2"/>
+			</anchored>
+			<font>reference-r</font>
+			<empty>0</empty>
+		</label>
+	</template>
+
+	<template name="async_header">
+		<label>
+			<anchored to="headerAnchor" height="20">
+				<top />
+				<left anchor="right" relation="relative"/>
+			</anchored>
+		</label>
+	</template>
+
+    <windowclass name="async_status">
+        <frame name="fieldfocus" offset="7,5,7,5" />
+        <sheetdata>
+            <windowlist name="async_tasks">
+                <anchored>
+                    <top offset="24"/>
+                    <left offset="10"/>
+                    <right offset="-10"/>
+                    <bottom offset="-10"/>
+                </anchored>
+                <class>async_status_entry</class>
+            </windowlist>
+            <genericcontrol name="headerAnchor">
+                <anchored position="insidetopleft" />
+            </genericcontrol>
+            <async_header>
+                <anchored width="295"/>
+                <static> Job Name </static>
+            </async_header>
+            <async_header>
+                <anchored width="145"/>
+                <static> Job Status </static>
+            </async_header>
+        </sheetdata>
+    </windowclass>
+
+	<panel name="asyncstatuspanel">
+		<anchored width="450" height="100">
+			<top offset="5"/>
+			<right parent="shortcutsanchor" anchor="left" />
+		</anchored>
+		<class>asyncstatuspanel</class>
+    </panel>
+
+    <windowclass name="asyncstatuspanel">
+        <sheetdata>
+            <subwindow name="status">
+                <anchored position="over"/>
+                <class>async_status</class>
+                <activate />
+                <fastinit />
+            </subwindow>
+        </sheetdata>
+    </windowclass>
+
+    <windowclass name="async_status_entry">
+        <sheetdata>
+            <genericcontrol name="rowAnchor">
+                <anchored position="insidetopleft" height="0" width="0" />
+            </genericcontrol>
+            <async_label name="jobName" >
+                <anchored width="295" />
+            </async_label>
+            <async_label name="jobStatus" >
+                <anchored width="145" />
+            </async_label>
+        </sheetdata>
+    </windowclass>
+</root>
